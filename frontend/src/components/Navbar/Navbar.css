@@ -1,14 +1,71 @@
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(10px);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem 2rem;
-  z-index: 1000;
+  background: #0b0b0b;
+  color: white;
+  position: relative;
+  z-index: 100;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Botón hamburguesa oculto en escritorio */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* MODO MÓVIL */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(10, 10, 10, 0.95);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    width: 200px;
+    height: auto;
+    gap: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-actions {
+    display: none;
+  }
 }
 
 .logo a {
@@ -16,11 +73,6 @@
   color: var(--primary);
   font-size: 1.4rem;
   letter-spacing: 2px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
 }
 
 .nav-links a {
