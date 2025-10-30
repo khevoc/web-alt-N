@@ -39,5 +39,25 @@
       "phoneValue": "+51 987 654 321",
       "subtitle": "You can also contact us directly through the following channels:"
     }
-  }
+  },
+
+  "collection": {
+  "title": "Collection",
+  "searchPlaceholder": "Search product...",
+  "clearSearch": "Clear search",
+  "filters": "Filters",
+  "allCategories": "All categories",
+  "art": "Art",
+  "nft": "NFT",
+  "digital": "Digital",
+  "physical": "Physical",
+  "sortBy": "Sort by",
+  "priceAsc": "Price: Low to High",
+  "priceDesc": "Price: High to Low",
+  "maxPrice": "Max price",
+  "addToCart": "Add to cart",
+  "page": "Page",
+  "of": "of"
+}
+
 }
