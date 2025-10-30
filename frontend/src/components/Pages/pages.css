@@ -1,0 +1,397 @@
+/* === Neo Altair Pages Styles === */
+
+/* Fondo general con degradado oscuro y azul */
+.page-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #01030a, #0a0f24);
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Títulos principales */
+.page-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #38bdf8; /* Azul neón */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(0, 150, 255, 0.5);
+}
+
+/* Subtítulos y párrafos */
+.page-text {
+  max-width: 850px;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+}
+
+/* === CONTACT PAGE === */
+
+.contact-page-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 30%, #020617, #0a0f24);
+  overflow: hidden;
+  padding: 4rem 1rem;
+}
+
+.contact-card {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+  animation: fadeIn 1.2s ease;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #38bdf8;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.contact-form label {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  outline: none;
+}
+
+.send-button {
+  width: 100%;
+  background: linear-gradient(90deg, #0284c7, #1d4ed8);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.send-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.contact-info {
+  text-align: center;
+  margin-top: 2rem;
+  color: #cbd5e1;
+}
+
+.contact-info a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mensajes de error */
+.error-text {
+  color: #f87171;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Confirmación de envío */
+.success-text {
+  color: #4ade80;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Adaptación responsive */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+
+  .page-text {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+/* === ABOUT PAGE === */
+
+.about-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: linear-gradient(to bottom, #01030a, #060b18);
+  color: #e2e8f0;
+}
+
+/* HERO SECTION */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 45vh;
+  background: radial-gradient(circle at 30% 50%, #0a122d, #01030a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 119, 255, 0.2), rgba(0, 0, 0, 0.8));
+  z-index: 1;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #f8fafc;
+}
+
+.about-hero-content .page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #38bdf8;
+  text-shadow: 0 0 20px rgba(0, 153, 255, 0.6);
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+/* MAIN CONTENT */
+.about-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.about-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-text {
+  max-width: 850px;
+  margin: 1.2rem auto;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  color: #cbd5e1;
+}
+
+.highlight {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+/* GRID OF VALUES */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 18px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 119, 255, 0.1);
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.about-card .icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  color: #38bdf8;
+}
+
+.about-card h3 {
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.about-card p {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* FOOTER TEXT */
+.about-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.about-footer h4 {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-hero-content .page-title {
+    font-size: 2.2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .page-text {
+    font-size: 1rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+}
+
+/* === FONDO DE RED DE PUNTOS DIGITALES (versión mejorada) === */
+
+.digital-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: transparent;
+  background-image: radial-gradient(rgba(0, 180, 255, 0.18) 1px, transparent 1px);
+  background-size: 25px 25px;
+  animation: gridMove 15s linear infinite;
+  overflow: hidden;
+}
+
+/* Movimiento sutil del patrón */
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Capa de puntos luminosos parpadeantes (efecto de luces digitales) */
+.digital-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(56, 189, 248, 0.6) 1px,
+    transparent 1px
+  );
+  background-size: 80px 80px;
+  animation: flicker 4s ease-in-out infinite alternate;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+}
+
+/* Parpadeo suave y pseudoaleatorio */
+@keyframes flicker {
+  0% {
+    opacity: 0.1;
+    filter: brightness(0.8);
+    background-position: 0 0;
+  }
+  25% {
+    opacity: 0.35;
+    filter: brightness(1.2);
+    background-position: 20px 30px;
+  }
+  50% {
+    opacity: 0.5;
+    filter: brightness(1);
+    background-position: 40px 60px;
+  }
+  75% {
+    opacity: 0.3;
+    filter: brightness(1.4);
+    background-position: 10px 40px;
+  }
+  100% {
+    opacity: 0.1;
+    filter: brightness(0.9);
+    background-position: 0 0;
+  }
+}
+
+/* Mantiene el texto por encima */
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+}

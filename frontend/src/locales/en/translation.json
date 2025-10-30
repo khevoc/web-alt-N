@@ -1,0 +1,43 @@
+{
+  "about": {
+    "title": "About Neo Altair",
+    "intro": "At <1>Neo Altair</1>, we blend <3>technology, innovation, and vision</3> to redefine the digital investment experience. We are a platform that unites the world of <5>blockchain</5> with modern design and next-generation security.",
+    "mission": "Our mission is to build an ecosystem where <1>digital assets</1> and <3>luxury-grade tokens</3> merge seamlessly into everyday life. Every detail of Neo Altair is crafted to deliver <5>transparency, control, and elegance</5> to our users.",
+    "securityTitle": "Security",
+    "securityText": "We implement advanced cryptographic standards to ensure every transaction remains fully protected.",
+    "innovationTitle": "Innovation",
+    "innovationText": "Each Neo Altair product merges art and technology, designed with a forward-thinking vision.",
+    "connectivityTitle": "Connectivity",
+    "connectivityText": "A global network engineered to deliver fast, stable, and reliable access from anywhere in the world.",
+    "footer": "Neo Altair — Where the future takes form."
+  },
+
+  "contact": {
+    "title": "Contact Us",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@example.com",
+    "messagePlaceholder": "Write your message here...",
+    "sendButton": "Send message",
+    "sendingButton": "Sending...",
+    "successMessage": "✅ Your message has been sent successfully.",
+    "errorAlert": "❌ Error sending message. Please try again.",
+
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "messageRequired": "Please write your message"
+    },
+
+    "info": {
+      "emailTitle": "Contact email",
+      "emailValue": "leo@gmail.com",
+      "phoneTitle": "Phone",
+      "phoneValue": "+51 987 654 321",
+      "subtitle": "You can also contact us directly through the following channels:"
+    }
+  }
+}

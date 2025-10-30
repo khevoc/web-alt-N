@@ -1,0 +1,35 @@
+.footer {
+  background: #000;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.language-switcher {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.language-switcher button {
+  background: transparent;
+  color: #60a5fa; /* azul neón */
+  border: 1px solid #1e40af;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 4px #3b82f6;
+}
+
+.language-switcher button:hover {
+  background: rgba(30, 58, 138, 0.5);
+  box-shadow: 0 0 6px #3b82f6, 0 0 10px #2563eb inset;
+  transform: scale(1.05);
+}
+
+.language-switcher button:active {
+  transform: scale(0.95);
+}
