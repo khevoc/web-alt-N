@@ -227,6 +227,7 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 4rem 2rem;
+  animation: fadeIn 1.2s ease;
 }
 
 .about-intro {

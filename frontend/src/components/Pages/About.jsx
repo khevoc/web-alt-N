@@ -6,14 +6,11 @@ export default function AboutPage() {
   const { t } = useTranslation();
 
   return (
-    <section className="page-container about-page">
-      <div className="about-hero">
+    <section className="page-container contact-page-container">
         {/* Fondo animado de puntos digitales */}
         <div className="digital-grid"></div>
 
-        {/* Overlay sutil */}
-        <div className="about-overlay" />
-
+      <div className="about-hero">
         {/* Contenido principal del hero */}
         <div className="about-hero-content">
           <h1 className="page-title">{t("about.title")}</h1>
