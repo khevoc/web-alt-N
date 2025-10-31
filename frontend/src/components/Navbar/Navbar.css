@@ -86,10 +86,24 @@
   text-decoration: none;
   color: #fff;
   transition: transform 0.2s ease;
+  position: relative;
 }
 
 .btn-cart:hover {
   transform: scale(1.1);
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #22c55e;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: 600;
+  box-shadow: 0 0 6px #22c55e;
 }
 
 .btn-primary {

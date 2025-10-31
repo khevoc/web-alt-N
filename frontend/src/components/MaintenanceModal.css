@@ -1,0 +1,61 @@
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 25, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  position: relative;
+  background: rgba(10, 20, 50, 0.8);
+  border: 1px solid rgba(80, 120, 255, 0.4);
+  border-radius: 16px;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 30px rgba(60, 100, 255, 0.4);
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #99baff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.circle-text {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6ca0ff;
+  animation: rotate 12s linear infinite;
+}
+
+.circle-text span {
+  position: absolute;
+  transform-origin: 0 100px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.circle-text span:nth-child(n) {
+  transform: rotate(calc(var(--i) * 20deg)) translateY(-100px);
+}
+  

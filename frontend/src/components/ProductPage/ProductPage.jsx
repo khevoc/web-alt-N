@@ -1,198 +1,256 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Papa from "papaparse";
-import { useTranslation } from "react-i18next";
-import { CartContext } from "/src/contexts/CartContext.jsx";
+import { useCart } from "../../contexts/CartContext.jsx";
 import "./ProductPage.css";
 
 export default function ProductPage() {
-  const { addToCart } = useContext(CartContext);
-  const { t } = useTranslation();
-
   const [products, setProducts] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [displayed, setDisplayed] = useState([]);
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
-  const [sortOrder, setSortOrder] = useState("none");
-  const [maxPrice, setMaxPrice] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [showFilters, setShowFilters] = useState(false);
-  const [addedItem, setAddedItem] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortOrder, setSortOrder] = useState(null);
+  const [showCategories, setShowCategories] = useState(false);
+  const [showSortMenu, setShowSortMenu] = useState(false);
+  const [page, setPage] = useState(1);
 
-  const productsPerPage = 20;
+  const { addToCart } = useCart();
+  const dropdownRef = useRef(null);
+  const itemsPerPage = 20;
 
+  // 🔹 Cerrar menús al hacer clic fuera
   useEffect(() => {
-    fetch("/products.csv")
-      .then((res) => {
-        if (!res.ok) throw new Error("products.csv not found");
-        return res.text();
-      })
-      .then((text) => {
-        const parsed = Papa.parse(text, { header: true }).data;
-        const cleanData = parsed
-          .filter((p) => p.name && p.price)
-          .map((p, i) => {
-            // normalize image path: ensure leading slash
-            let img = p.image ? String(p.image).trim() : "";
-            if (img && !img.startsWith("/")) img = "/" + img;
-            // fallback to category-based file (normalize category -> no spaces lower)
-            const catKey = p.category ? String(p.category).trim() : "uncategorized";
-            const fallback = `/images/${catKey.toLowerCase().replace(/\s+/g, "")}.gif`;
-            return {
-              id: i + 1,
-              name: String(p.name).trim(),
-              category: catKey,
-              price: Number(parseFloat(p.price) || 0),
-              image: img || fallback,
-            };
-          });
-        setProducts(cleanData);
-      })
-      .catch((err) => {
-        console.error("Error loading products.csv:", err);
-      });
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setShowCategories(false);
+        setShowSortMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // derive categories from data (keeps UI in sync)
-  const derivedCategories = ["all", ...Array.from(new Set(products.map((p) => p.category))).sort()];
+  // 🔹 Cargar CSV
+  useEffect(() => {
+    Papa.parse("/products.csv", {
+      download: true,
+      header: true,
+      complete: (results) => {
+        const parsed = results.data
+          .filter((p) => p.name && p.price && p.category)
+          .map((p) => ({
+            ...p,
+            price: Number(p.price),
+          }));
+        setProducts(parsed);
+      },
+    });
+  }, []);
 
-  // Filtering + sorting
-  const filteredProducts = products
-    .filter((p) => p.name.toLowerCase().includes(search.toLowerCase()))
-    .filter((p) => (category === "all" ? true : p.category === category))
-    .filter((p) => (maxPrice ? p.price <= Number(maxPrice) : true))
-    .sort((a, b) => {
-      if (sortOrder === "asc") return a.price - b.price;
-      if (sortOrder === "desc") return b.price - a.price;
-      return 0;
+  // 🔹 Filtrado + orden
+  useEffect(() => {
+    let data = products.filter((p) => {
+      const matchSearch = p.name?.toLowerCase().includes(search.toLowerCase());
+      const matchCategory =
+        selectedCategory === "All" || p.category === selectedCategory;
+      return matchSearch && matchCategory;
     });
 
-  const totalPages = Math.max(1, Math.ceil(filteredProducts.length / productsPerPage));
-  const start = (currentPage - 1) * productsPerPage;
-  const paginatedProducts = filteredProducts.slice(start, start + productsPerPage);
+    if (sortOrder === "asc") data.sort((a, b) => a.price - b.price);
+    else if (sortOrder === "desc") data.sort((a, b) => b.price - a.price);
 
-  // when search or filter changes, reset to page 1 and scroll up
+    setFilteredData(data);
+    setPage(1); // reinicia a la primera página al aplicar filtro
+  }, [search, selectedCategory, sortOrder, products]);
+
+  // 🔹 Actualizar productos visibles según página
   useEffect(() => {
-    setCurrentPage(1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [search, category, sortOrder, maxPrice]);
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    setDisplayed(filteredData.slice(start, end));
+  }, [filteredData, page]);
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const uniqueCategories = ["All", ...new Set(products.map((p) => p.category))];
 
-  // add to cart with animation
-  const handleAddToCart = (product) => {
+  // 🔹 Agregar al carrito con animación
+  const handleAddToCart = (product, e) => {
     addToCart(product);
-    setAddedItem(product.id);
-    // clear effect after animation ends (1s)
-    setTimeout(() => setAddedItem(null), 900);
+
+    const btn = e.target;
+    btn.classList.add("added");
+    setTimeout(() => btn.classList.remove("added"), 400);
+
+    const img = e.target.closest(".product-card").querySelector("img");
+    if (img) {
+      const clone = img.cloneNode();
+      const rect = img.getBoundingClientRect();
+      clone.style.position = "fixed";
+      clone.style.left = `${rect.left}px`;
+      clone.style.top = `${rect.top}px`;
+      clone.style.width = `${rect.width}px`;
+      clone.style.height = `${rect.height}px`;
+      clone.style.transition = "all 0.8s cubic-bezier(0.55, 0.1, 0.3, 1)";
+      clone.style.zIndex = 9999;
+      clone.style.borderRadius = "12px";
+      document.body.appendChild(clone);
+
+      const cartIcon = document.querySelector(".btn-cart");
+      if (cartIcon) {
+        const targetRect = cartIcon.getBoundingClientRect();
+        requestAnimationFrame(() => {
+          clone.style.left = `${targetRect.left}px`;
+          clone.style.top = `${targetRect.top}px`;
+          clone.style.width = "25px";
+          clone.style.height = "25px";
+          clone.style.opacity = "0";
+        });
+      }
+      setTimeout(() => clone.remove(), 900);
+    }
   };
 
-  const clearSearch = () => {
-    setSearch("");
-    setCurrentPage(1);
+  const handleNext = () => {
+    setPage((prev) => {
+      const nextPage = prev + 1;
+      window.scrollTo({ top: 0, behavior: "smooth" }); // 👈 desplazarse al inicio
+      return nextPage;
+    });
+  };
+  const handlePrev = () => {
+    setPage((prev) => {
+      const prevPage = prev - 1;
+      window.scrollTo({ top: 0, behavior: "smooth" }); // 👈 desplazarse al inicio
+      return prevPage;
+    });
   };
 
   return (
-    <section className="product-page">
-      {/* title (uses i18n keys; fallback text if key missing) */}
-      <h2 className="page-title">{t("collection.title", "Collection")}</h2>
+    <section className="product-section">
+      <h1 className="product-title">Our Collection</h1>
 
-      {/* spaced filters/search area */}
-      <div className="filters-wrapper">
-        <div className="filters-bar">
-          <div className="search-box">
-            <input
-              type="text"
-              placeholder={t("collection.searchPlaceholder", "Search product...")}
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="search-input"
-              aria-label={t("collection.searchPlaceholder", "Search product...")}
-            />
-            {search && (
-              <button className="clear-btn" onClick={clearSearch} aria-label={t("collection.clearSearch","Clear search")}>
-                ✕
-              </button>
+      {/* 🔹 Barra de filtros */}
+      <div className="filters-bar" ref={dropdownRef}>
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Search products..."
+            className="search-input"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          {search && (
+            <button className="clear-btn" onClick={() => setSearch("")}>
+              ✕
+            </button>
+          )}
+        </div>
+
+        <div className="dropdown-group">
+          {/* Categorías */}
+          <div className="dropdown">
+            <button
+              className="dropdown-btn"
+              onClick={() => {
+                setShowCategories(!showCategories);
+                setShowSortMenu(false);
+              }}
+            >
+              {selectedCategory} 
+            </button>
+            {showCategories && (
+              <div className="dropdown-menu">
+                {uniqueCategories.map((cat, i) => (
+                  <button
+                    key={i}
+                    className={`dropdown-item ${
+                      selectedCategory === cat ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      setSelectedCategory(cat);
+                      setShowCategories(false);
+                    }}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
             )}
           </div>
 
-          <div className="filters-actions">
-            <button className="filter-btn" onClick={() => setShowFilters((s) => !s)}>
-              {t("collection.filters", "Filters ⚙️")}
+          {/* Ordenar */}
+          <div className="dropdown">
+            <button
+              className="dropdown-btn"
+              onClick={() => {
+                setShowSortMenu(!showSortMenu);
+                setShowCategories(false);
+              }}
+            >
+              Sort by Price 
+            </button>
+            {showSortMenu && (
+              <div className="dropdown-menu">
+                <button
+                  className="dropdown-item"
+                  onClick={() => {
+                    setSortOrder("asc");
+                    setShowSortMenu(false);
+                  }}
+                >
+                  Lowest to Highest
+                </button>
+                <button
+                  className="dropdown-item"
+                  onClick={() => {
+                    setSortOrder("desc");
+                    setShowSortMenu(false);
+                  }}
+                >
+                  Highest to Lowest
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* 🔹 Grilla de productos */}
+      <div className="product-grid">
+        {displayed.map((product, i) => (
+          <div key={i} className="product-card">
+            <div className="img-wrapper">
+              <img src={product.image} alt={product.name} loading="lazy" />
+            </div>
+            <h3>{product.name}</h3>
+            <p className="category">{product.category}</p>
+            <p className="price">${product.price.toFixed(2)}</p>
+            <button onClick={(e) => handleAddToCart(product, e)}>
+              Add to Cart
             </button>
           </div>
-        </div>
-
-        <div className={`filters-panel ${showFilters ? "open" : ""}`}>
-          <label>
-            <select value={category} onChange={(e) => setCategory(e.target.value)}>
-              {derivedCategories.map((c) => (
-                <option key={c} value={c}>
-                  {c === "all" ? t("collection.allCategories", "All categories") : c}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label>
-            <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-              <option value="none">{t("collection.sortBy", "Sort by")}</option>
-              <option value="asc">{t("collection.priceAsc", "Price: Low to High")}</option>
-              <option value="desc">{t("collection.priceDesc", "Price: High to Low")}</option>
-            </select>
-          </label>
-
-          <label className="maxprice">
-            <input
-              type="number"
-              placeholder={t("collection.maxPrice", "Max price")}
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            />
-          </label>
-        </div>
-      </div>
-
-      {/* grid */}
-      <div className="grid products-grid">
-        {paginatedProducts.map((p) => (
-          <div key={p.id} className={`card ${addedItem === p.id ? "added" : ""}`}>
-            <div
-              className="thumb"
-              role="img"
-              aria-label={p.name}
-              style={{
-                backgroundImage: `url(${p.image})`,
-              }}
-            />
-            <h3>{p.name}</h3>
-            <p className="price">${p.price.toFixed(2)}</p>
-
-            <div className="card-actions">
-              <button className="btn-buy" onClick={() => handleAddToCart(p)}>
-                {t("collection.addToCart", "Add to cart")}
-              </button>
-            </div>
-
-            {/* floating +1 animation */}
-            {addedItem === p.id && <span className="added-badge">+1</span>}
-          </div>
         ))}
+        {displayed.length === 0 && (
+          <p className="no-results">No products found.</p>
+        )}
       </div>
 
-      {/* pagination */}
-      <div className="pagination">
-        <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
-          ◀
-        </button>
-        <span>
-          {t("collection.page", "Page")} {currentPage} {t("collection.of", "of")} {totalPages}
-        </span>
-        <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-          ▶
-        </button>
-      </div>
+      {/* 🔹 Paginación */}
+      {filteredData.length > itemsPerPage && (
+        <div className="pagination">
+          <button disabled={page === 1} onClick={handlePrev}>
+            ⟨ Prev
+          </button>
+          <span>
+            Page {page} of {Math.ceil(filteredData.length / itemsPerPage)}
+          </span>
+          <button
+            disabled={page >= Math.ceil(filteredData.length / itemsPerPage)}
+            onClick={handleNext}
+          >
+            Next ⟩
+          </button>
+        </div>
+      )}
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useCart } from "../../contexts/CartContext.jsx";
 import LanguageSwitcher from "../Language";
 import "./Navbar.css";
 
@@ -7,6 +8,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const { cart } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +39,12 @@ export default function Navbar() {
       </nav>
 
       <div className="nav-actions">
-        <NavLink to="/cart" className="btn-cart">🛒</NavLink>
+        <NavLink to="/cart" className="btn-cart">
+          🛒
+          {cart.length > 0 && (
+            <span className="cart-count">{cart.length}</span>
+          )}
+        </NavLink>
         <NavLink to="/checkout" className="btn-primary">Checkout</NavLink>
       </div>
 

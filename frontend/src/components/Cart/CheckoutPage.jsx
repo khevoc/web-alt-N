@@ -1,96 +1,105 @@
 import React, { useState } from "react";
 import { useCart } from "../../contexts/CartContext.jsx";
-import IziPayModal from "../../widgets/IziPayModal.jsx";
+import MaintenanceModal from "../../components/MaintenanceModal.jsx";
 import "./CheckoutPage.css";
 
 export default function CheckoutPage() {
-  const { cart, total, clearCart } = useCart();
-  const [showPayment, setShowPayment] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    address: "",
-  });
+  const { cart, total } = useCart();
+  const [showDetails, setShowDetails] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", address: "" });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleCheckout = () => {
-    if (!form.name || !form.email || !form.address) {
-      alert("Por favor completa todos los campos.");
-      return;
-    }
-    setShowPayment(true);
-  };
-
-  const handlePaymentSuccess = () => {
-    alert("✅ Pago exitoso. ¡Gracias por tu compra!");
-    clearCart();
-    setShowPayment(false);
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   return (
-    <section className="checkout-container">
-      <h2 className="checkout-title">Finalizar Compra</h2>
+    <section className="checkout-section">
+      <div className="checkout-container">
+        <h1 className="checkout-title">Checkout</h1>
 
-      <div className="checkout-content">
-        {/* 🛒 Resumen del carrito */}
-        <div className="order-summary">
-          <h3>Tu Pedido</h3>
-          {cart.length === 0 ? (
-            <p>Tu carrito está vacío.</p>
-          ) : (
-            <ul>
-              {cart.map((item, index) => (
-                <li key={index}>
-                  <span>{item.title}</span>
-                  <span>${item.price}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-          <h4>Total: ${total.toFixed(2)}</h4>
-        </div>
+        <div className="checkout-content">
+          {/* FORMULARIO */}
+          <div className="checkout-form">
+            <h2>Customer Information</h2>
+            <form>
+              <label>
+                Full Name
+                <input
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  required
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="john@email.com"
+                  required
+                />
+              </label>
+              <label>
+                Address
+                <input
+                  type="text"
+                  name="address"
+                  value={form.address}
+                  onChange={handleChange}
+                  placeholder="123 Ocean Drive"
+                  required
+                />
+              </label>
+            </form>
+          </div>
 
-        {/* 🧾 Formulario de datos */}
-        <div className="checkout-form">
-          <h3>Datos del comprador</h3>
-          <input
-            type="text"
-            name="name"
-            placeholder="Nombre completo"
-            value={form.name}
-            onChange={handleChange}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Correo electrónico"
-            value={form.email}
-            onChange={handleChange}
-          />
-          <textarea
-            name="address"
-            placeholder="Dirección de entrega"
-            value={form.address}
-            onChange={handleChange}
-          ></textarea>
-          <button className="btn-pay" onClick={handleCheckout}>
-            Proceder al pago
-          </button>
+          {/* RESUMEN */}
+          <div className="checkout-summary">
+            <h2>Order Summary</h2>
+            <div className="summary-top">
+              <p className="summary-total">
+                <strong>Total:</strong> ${Number(total).toFixed(2)}
+              </p>
+              <button
+                className="btn-toggle"
+                onClick={() => setShowDetails(!showDetails)}
+              >
+                {showDetails ? "Hide Details" : "View Details"}
+              </button>
+            </div>
+
+            {showDetails && (
+              <ul className="summary-list">
+                {cart.map((item, index) => (
+                  <li key={index} className="summary-item">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="summary-thumb"
+                    />
+                    <div className="summary-info">
+                      <p>{item.name}</p>
+                      <p>${Number(item.price).toFixed(2)}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <button className="btn-pay" onClick={() => setShowModal(true)}>
+              Pay Now
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* 💳 Modal de pago IziPay */}
-      {showPayment && (
-        <IziPayModal
-          total={total}
-          onSuccess={handlePaymentSuccess}
-          onClose={() => setShowPayment(false)}
-        />
-      )}
+      {showModal && <MaintenanceModal onClose={() => setShowModal(false)} />}
     </section>
   );
 }

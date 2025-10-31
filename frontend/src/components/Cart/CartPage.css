@@ -1,0 +1,205 @@
+/* === Neo Futurist Cart Page === */
+
+.cart-section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #01030a, #0a0f24);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 1rem;
+  color: #e2e8f0;
+}
+
+.cart-container {
+  width: 100%;
+  max-width: 850px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.8s ease;
+}
+
+.cart-title {
+  font-size: 2.4rem;
+  text-align: center;
+  color: #38bdf8;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+/* === Cart List === */
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+/* === Product Thumbnail === */
+.cart-thumb-wrapper {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.cart-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cart-item:hover .cart-thumb {
+  transform: scale(1.08);
+}
+
+/* === Product Info === */
+.cart-info {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.cart-info h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #f1f5f9;
+}
+
+.cart-price {
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+/* === Remove Button === */
+.btn-remove {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-remove:hover {
+  background: rgba(239, 68, 68, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+/* === Summary === */
+.cart-summary {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cart-summary h2 {
+  font-size: 1.5rem;
+  color: #38bdf8;
+  margin-bottom: 1.2rem;
+}
+
+.cart-summary span {
+  color: #f8fafc;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* === Buttons === */
+.btn-clear,
+.btn-checkout,
+.btn-return {
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-clear {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.btn-clear:hover {
+  background: rgba(239, 68, 68, 0.25);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-checkout {
+  background: linear-gradient(90deg, #0284c7, #1d4ed8);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.btn-checkout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+}
+
+.btn-return {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-return:hover {
+  background: rgba(56, 189, 248, 0.15);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+
+/* === Empty Cart === */
+.empty-cart {
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.empty-icon {
+  color: #38bdf8;
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

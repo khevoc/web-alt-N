@@ -22,7 +22,7 @@ export default function Cart() {
             <div>
               <h3 className="font-semibold">{item.name}</h3>
               <p className="text-gray-400">
-                {item.quantity} x ${item.price.toFixed(2)}
+                {item.quantity} x ${Number(item.price).toFixed(2)}
               </p>
             </div>
             <button
@@ -37,7 +37,7 @@ export default function Cart() {
 
       <div className="mt-4 flex justify-between items-center text-lg">
         <span>Total:</span>
-        <span className="font-bold text-green-400">${total.toFixed(2)}</span>
+        <span className="font-bold text-green-400">${Number(total).toFixed(2)}</span>
       </div>
 
       <div className="mt-6 flex gap-3">

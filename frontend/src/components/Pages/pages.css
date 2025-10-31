@@ -131,6 +131,96 @@
   text-decoration: underline;
 }
 
+/* === CONTACT INFO — Modern Neo-Futuristic Block === */
+.contact-info {
+  margin-top: 2.5rem;
+  text-align: center;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info:hover {
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Sutil resplandor animado de fondo */
+.contact-info::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.12), transparent 70%);
+  animation: pulseGlow 6s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.3; transform: scale(1); }
+  100% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: #60a5fa;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+/* Ítems individuales (email / teléfono) */
+.info-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.info-icon {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 0.6rem;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.3px;
+}
+
+.info-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+  transition: color 0.3s ease;
+}
+
+.info-item:hover .info-value {
+  color: #38bdf8;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
