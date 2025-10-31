@@ -1,101 +1,73 @@
 id,name,category,price,image
-1,Product 1,Arte,80.0,https://via.placeholder.com/240
-2,Product 2,NFT,82.5,https://via.placeholder.com/240
-3,Product 3,Digital,85.0,https://via.placeholder.com/240
-4,Product 4,Físico,87.5,https://via.placeholder.com/240
-5,Product 5,Arte,90.0,https://via.placeholder.com/240
-6,Product 6,NFT,92.5,https://via.placeholder.com/240
-7,Product 7,Digital,95.0,https://via.placeholder.com/240
-8,Product 8,Físico,97.5,https://via.placeholder.com/240
-9,Product 9,Arte,100.0,https://via.placeholder.com/240
-10,Product 10,NFT,102.5,https://via.placeholder.com/240
-11,Product 11,Digital,105.0,https://via.placeholder.com/240
-12,Product 12,Físico,107.5,https://via.placeholder.com/240
-13,Product 13,Arte,110.0,https://via.placeholder.com/240
-14,Product 14,NFT,112.5,https://via.placeholder.com/240
-15,Product 15,Digital,115.0,https://via.placeholder.com/240
-16,Product 16,Físico,117.5,https://via.placeholder.com/240
-17,Product 17,Arte,120.0,https://via.placeholder.com/240
-18,Product 18,NFT,122.5,https://via.placeholder.com/240
-19,Product 19,Digital,125.0,https://via.placeholder.com/240
-20,Product 20,Físico,127.5,https://via.placeholder.com/240
-21,Product 21,Arte,130.0,https://via.placeholder.com/240
-22,Product 22,NFT,132.5,https://via.placeholder.com/240
-23,Product 23,Digital,135.0,https://via.placeholder.com/240
-24,Product 24,Físico,137.5,https://via.placeholder.com/240
-25,Product 25,Arte,140.0,https://via.placeholder.com/240
-26,Product 26,NFT,142.5,https://via.placeholder.com/240
-27,Product 27,Digital,145.0,https://via.placeholder.com/240
-28,Product 28,Físico,147.5,https://via.placeholder.com/240
-29,Product 29,Arte,150.0,https://via.placeholder.com/240
-30,Product 30,NFT,152.5,https://via.placeholder.com/240
-31,Product 31,Digital,155.0,https://via.placeholder.com/240
-32,Product 32,Físico,157.5,https://via.placeholder.com/240
-33,Product 33,Arte,160.0,https://via.placeholder.com/240
-34,Product 34,NFT,162.5,https://via.placeholder.com/240
-35,Product 35,Digital,165.0,https://via.placeholder.com/240
-36,Product 36,Físico,167.5,https://via.placeholder.com/240
-37,Product 37,Arte,170.0,https://via.placeholder.com/240
-38,Product 38,NFT,172.5,https://via.placeholder.com/240
-39,Product 39,Digital,175.0,https://via.placeholder.com/240
-40,Product 40,Físico,177.5,https://via.placeholder.com/240
-41,Product 41,Arte,180.0,https://via.placeholder.com/240
-42,Product 42,NFT,182.5,https://via.placeholder.com/240
-43,Product 43,Digital,185.0,https://via.placeholder.com/240
-44,Product 44,Físico,187.5,https://via.placeholder.com/240
-45,Product 45,Arte,190.0,https://via.placeholder.com/240
-46,Product 46,NFT,192.5,https://via.placeholder.com/240
-47,Product 47,Digital,195.0,https://via.placeholder.com/240
-48,Product 48,Físico,197.5,https://via.placeholder.com/240
-49,Product 49,Arte,200.0,https://via.placeholder.com/240
-50,Product 50,NFT,202.5,https://via.placeholder.com/240
-51,Product 51,Digital,205.0,https://via.placeholder.com/240
-52,Product 52,Físico,207.5,https://via.placeholder.com/240
-53,Product 53,Arte,210.0,https://via.placeholder.com/240
-54,Product 54,NFT,212.5,https://via.placeholder.com/240
-55,Product 55,Digital,215.0,https://via.placeholder.com/240
-56,Product 56,Físico,217.5,https://via.placeholder.com/240
-57,Product 57,Arte,220.0,https://via.placeholder.com/240
-58,Product 58,NFT,222.5,https://via.placeholder.com/240
-59,Product 59,Digital,225.0,https://via.placeholder.com/240
-60,Product 60,Físico,227.5,https://via.placeholder.com/240
-61,Product 61,Arte,230.0,https://via.placeholder.com/240
-62,Product 62,NFT,232.5,https://via.placeholder.com/240
-63,Product 63,Digital,235.0,https://via.placeholder.com/240
-64,Product 64,Físico,237.5,https://via.placeholder.com/240
-65,Product 65,Arte,240.0,https://via.placeholder.com/240
-66,Product 66,NFT,242.5,https://via.placeholder.com/240
-67,Product 67,Digital,245.0,https://via.placeholder.com/240
-68,Product 68,Físico,247.5,https://via.placeholder.com/240
-69,Product 69,Arte,250.0,https://via.placeholder.com/240
-70,Product 70,NFT,252.5,https://via.placeholder.com/240
-71,Product 71,Digital,255.0,https://via.placeholder.com/240
-72,Product 72,Físico,257.5,https://via.placeholder.com/240
-73,Product 73,Arte,260.0,https://via.placeholder.com/240
-74,Product 74,NFT,262.5,https://via.placeholder.com/240
-75,Product 75,Digital,265.0,https://via.placeholder.com/240
-76,Product 76,Físico,267.5,https://via.placeholder.com/240
-77,Product 77,Arte,270.0,https://via.placeholder.com/240
-78,Product 78,NFT,272.5,https://via.placeholder.com/240
-79,Product 79,Digital,275.0,https://via.placeholder.com/240
-80,Product 80,Físico,277.5,https://via.placeholder.com/240
-81,Product 81,Arte,80.0,https://via.placeholder.com/240
-82,Product 82,NFT,82.5,https://via.placeholder.com/240
-83,Product 83,Digital,85.0,https://via.placeholder.com/240
-84,Product 84,Físico,87.5,https://via.placeholder.com/240
-85,Product 85,Arte,90.0,https://via.placeholder.com/240
-86,Product 86,NFT,92.5,https://via.placeholder.com/240
-87,Product 87,Digital,95.0,https://via.placeholder.com/240
-88,Product 88,Físico,97.5,https://via.placeholder.com/240
-89,Product 89,Arte,100.0,https://via.placeholder.com/240
-90,Product 90,NFT,102.5,https://via.placeholder.com/240
-91,Product 91,Digital,105.0,https://via.placeholder.com/240
-92,Product 92,Físico,107.5,https://via.placeholder.com/240
-93,Product 93,Arte,110.0,https://via.placeholder.com/240
-94,Product 94,NFT,112.5,https://via.placeholder.com/240
-95,Product 95,Digital,115.0,https://via.placeholder.com/240
-96,Product 96,Físico,117.5,https://via.placeholder.com/240
-97,Product 97,Arte,120.0,https://via.placeholder.com/240
-98,Product 98,NFT,122.5,https://via.placeholder.com/240
-99,Product 99,Digital,125.0,https://via.placeholder.com/240
-100,Product 100,Físico,127.5,https://via.placeholder.com/240
+1,Chromatic Shard,Chromatic Realm,15.00,/chromatic_realm.gif
+2,Chromatic Elixir,Chromatic Realm,17.50,/chromatic_realm.gif
+3,Chromatic Catalyst,Chromatic Realm,20.00,/chromatic_realm.gif
+4,Chromatic Sphere,Chromatic Realm,22.50,/chromatic_realm.gif
+5,Chromatic Pulse,Chromatic Realm,25.00,/chromatic_realm.gif
+6,Chromatic Fragment,Chromatic Realm,27.50,/chromatic_realm.gif
+7,Chromatic Flame,Chromatic Realm,30.00,/chromatic_realm.gif
+8,Chromatic Tide,Chromatic Realm,32.50,/chromatic_realm.gif
+9,Chromatic Dust,Chromatic Realm,35.00,/chromatic_realm.gif
+10,Chromatic Prism,Chromatic Realm,37.50,/chromatic_realm.gif
+11,Chromatic Core,Chromatic Realm,40.00,/chromatic_realm.gif
+12,Chromatic Vortex,Chromatic Realm,42.50,/chromatic_realm.gif
+13,Mystic Shard,Mystic Forge,15.00,/mystic_forge.gif
+14,Mystic Elixir,Mystic Forge,17.50,/mystic_forge.gif
+15,Mystic Catalyst,Mystic Forge,20.00,/mystic_forge.gif
+16,Mystic Sphere,Mystic Forge,22.50,/mystic_forge.gif
+17,Mystic Pulse,Mystic Forge,25.00,/mystic_forge.gif
+18,Mystic Fragment,Mystic Forge,27.50,/mystic_forge.gif
+19,Mystic Flame,Mystic Forge,30.00,/mystic_forge.gif
+20,Mystic Tide,Mystic Forge,32.50,/mystic_forge.gif
+21,Mystic Dust,Mystic Forge,35.00,/mystic_forge.gif
+22,Mystic Prism,Mystic Forge,37.50,/mystic_forge.gif
+23,Mystic Core,Mystic Forge,40.00,/mystic_forge.gif
+24,Mystic Vortex,Mystic Forge,42.50,/mystic_forge.gif
+25,Elemental Shard,Elemental Core,15.00,/elemental_core.gif
+26,Elemental Elixir,Elemental Core,17.50,/elemental_core.gif
+27,Elemental Catalyst,Elemental Core,20.00,/elemental_core.gif
+28,Elemental Sphere,Elemental Core,22.50,/elemental_core.gif
+29,Elemental Pulse,Elemental Core,25.00,/elemental_core.gif
+30,Elemental Fragment,Elemental Core,27.50,/elemental_core.gif
+31,Elemental Flame,Elemental Core,30.00,/elemental_core.gif
+32,Elemental Tide,Elemental Core,32.50,/elemental_core.gif
+33,Elemental Dust,Elemental Core,35.00,/elemental_core.gif
+34,Elemental Prism,Elemental Core,37.50,/elemental_core.gif
+35,Elemental Core,Elemental Core,40.00,/elemental_core.gif
+36,Elemental Vortex,Elemental Core,42.50,/elemental_core.gif
+37,Quantum Shard,Quantum Essence,15.00,/quantum_essence.gif
+38,Quantum Elixir,Quantum Essence,17.50,/quantum_essence.gif
+39,Quantum Catalyst,Quantum Essence,20.00,/quantum_essence.gif
+40,Quantum Sphere,Quantum Essence,22.50,/quantum_essence.gif
+41,Quantum Pulse,Quantum Essence,25.00,/quantum_essence.gif
+42,Quantum Fragment,Quantum Essence,27.50,/quantum_essence.gif
+43,Quantum Flame,Quantum Essence,30.00,/quantum_essence.gif
+44,Quantum Tide,Quantum Essence,32.50,/quantum_essence.gif
+45,Quantum Dust,Quantum Essence,35.00,/quantum_essence.gif
+46,Quantum Prism,Quantum Essence,37.50,/quantum_essence.gif
+47,Quantum Core,Quantum Essence,40.00,/quantum_essence.gif
+48,Quantum Vortex,Quantum Essence,42.50,/quantum_essence.gif
+49,Aether Shard,Aether Workshop,15.00,/aether_workshop.gif
+50,Aether Elixir,Aether Workshop,17.50,/aether_workshop.gif
+51,Aether Catalyst,Aether Workshop,20.00,/aether_workshop.gif
+52,Aether Sphere,Aether Workshop,22.50,/aether_workshop.gif
+53,Aether Pulse,Aether Workshop,25.00,/aether_workshop.gif
+54,Aether Fragment,Aether Workshop,27.50,/aether_workshop.gif
+55,Aether Flame,Aether Workshop,30.00,/aether_workshop.gif
+56,Aether Tide,Aether Workshop,32.50,/aether_workshop.gif
+57,Aether Dust,Aether Workshop,35.00,/aether_workshop.gif
+58,Aether Prism,Aether Workshop,37.50,/aether_workshop.gif
+59,Aether Core,Aether Workshop,40.00,/aether_workshop.gif
+60,Aether Vortex,Aether Workshop,42.50,/aether_workshop.gif
+61,Crystal Shard,Crystal Bloom,15.00,/crystal_bloom.gif
+62,Crystal Elixir,Crystal Bloom,17.50,/crystal_bloom.gif
+63,Crystal Catalyst,Crystal Bloom,20.00,/crystal_bloom.gif
+64,Crystal Sphere,Crystal Bloom,22.50,/crystal_bloom.gif
+65,Crystal Pulse,Crystal Bloom,25.00,/crystal_bloom.gif
+66,Crystal Fragment,Crystal Bloom,27.50,/crystal_bloom.gif
+67,Crystal Flame,Crystal Bloom,30.00,/crystal_bloom.gif
+68,Crystal Tide,Crystal Bloom,32.50,/crystal_bloom.gif
+69,Crystal Dust,Crystal Bloom,35.00,/crystal_bloom.gif
+70,Crystal Prism,Crystal Bloom,37.50,/crystal_bloom.gif
+71,Crystal Core,Crystal Bloom,40.00,/crystal_bloom.gif
+72,Crystal Vortex,Crystal Bloom,42.50,/crystal_bloom.gif
