@@ -39,6 +39,7 @@
 /* === CONTACT PAGE === */
 
 .contact-page-container {
+  margin-top: 2rem;
   position: relative;
   min-height: 100vh;
   display: flex;

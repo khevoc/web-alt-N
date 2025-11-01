@@ -67,7 +67,7 @@ export default function Hero() {
     if (distance > 50) nextSlide(); // swipe left
     if (distance < -50) prevSlide(); // swipe right
     touchStartX.current = null;
-    touchEndX.current = null;
+    touchEndX.current = null;    
   };
 
   return (

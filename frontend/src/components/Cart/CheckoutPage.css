@@ -9,6 +9,7 @@
 }
 
 .checkout-container {
+  margin-top: 2rem;
   width: 100%;
   max-width: 1000px;
   background: rgba(20, 25, 45, 0.6);
