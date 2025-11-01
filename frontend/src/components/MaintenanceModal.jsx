@@ -2,36 +2,48 @@ import React from "react";
 import "./MaintenanceModal.css";
 
 export default function MaintenanceModal({ onClose }) {
+  const phrase = "Option in maintenance • ";
+  const repeatCount = 3; // repetir para llenar el círculo
+  const text = phrase.repeat(repeatCount).trim();
+  const chars = text.split("");
+
+  const radius = 135; // distancia del texto al centro
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-box" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>
           ✕
         </button>
-        <div className="circle-text">
-          <span>O</span>
-          <span>p</span>
-          <span>t</span>
-          <span>i</span>
-          <span>o</span>
-          <span>n&nbsp;</span>
-          <span>i</span>
-          <span>n&nbsp;</span>
-          <span>m</span>
-          <span>a</span>
-          <span>i</span>
-          <span>n</span>
-          <span>t</span>
-          <span>e</span>
-          <span>n</span>
-          <span>a</span>
-          <span>n</span>
-          <span>c</span>
-          <span>e</span>
+
+        <div className="maintenance-container">
+          <img
+            src="/maintenance.gif"
+            alt="Maintenance animation"
+            className="maintenance-gif"
+          />
+
+          <div className="circle-text">
+            {chars.map((char, i) => {
+              const angle = (360 / chars.length) * i;
+              return (
+                <span
+                  key={i}
+                  style={{
+                    transform: `
+                      rotate(${angle}deg)
+                      translate(${radius}px)
+                      rotate(${90}deg)
+                    `,
+                  }}
+                >
+                  {char}
+                </span>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-
