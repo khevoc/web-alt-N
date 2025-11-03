@@ -2,22 +2,24 @@ import React from "react";
 import { useCart } from "../../contexts/CartContext.jsx";
 import { Link } from "react-router-dom";
 import { Trash2, ShoppingBag } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import "./CartPage.css";
 
 export default function CartPage() {
   const { cart, total, removeFromCart, clearCart } = useCart();
+  const { t } = useTranslation();
 
   return (
     <section className="cart-section">
       <div className="cart-container">
-        <h1 className="cart-title">Shopping Cart</h1>
+        <h1 className="cart-title">{t("cart.title")}</h1>
 
         {cart.length === 0 ? (
           <div className="empty-cart">
             <ShoppingBag size={64} className="empty-icon" />
-            <p>Your cart is empty.</p>
+            <p>{t("cart.empty")}</p>
             <Link to="/product" className="btn-return">
-              Browse Collection
+              {t("cart.browseCollection")}
             </Link>
           </div>
         ) : (
@@ -47,10 +49,10 @@ export default function CartPage() {
               <h2>Total: <span>${Number(total).toFixed(2)}</span></h2>
               <div className="cart-actions">
                 <button onClick={clearCart} className="btn-clear">
-                  Clear Cart
+                  {t("cart.clearCart")}
                 </button>
                 <Link to="/checkout" className="btn-checkout">
-                  Proceed to Checkout
+                  {t("cart.proceedToCheckout")}
                 </Link>
               </div>
             </div>

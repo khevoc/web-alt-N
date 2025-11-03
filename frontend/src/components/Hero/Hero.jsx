@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import "./Hero.css";
 import hero1 from "../../assets/hero-5.png";
 import hero2 from "../../assets/hero.png";
@@ -39,6 +40,7 @@ export default function Hero() {
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
   const intervalRef = useRef(null);
+  const {t} = useTranslation();
 
   const nextSlide = () => {setIndex((prev) => (prev + 1) % slides.length);resetInterval();};
   const prevSlide = () => {setIndex((prev) => (prev - 1 + slides.length) % slides.length);resetInterval();};
@@ -64,8 +66,8 @@ export default function Hero() {
     resetInterval();
     if (!touchStartX.current || !touchEndX.current) return;
     const distance = touchStartX.current - touchEndX.current;
-    if (distance > 50) nextSlide(); // swipe left
-    if (distance < -50) prevSlide(); // swipe right
+    if (distance > 50) nextSlide();
+    if (distance < -50) prevSlide();
     touchStartX.current = null;
     touchEndX.current = null;    
   };
@@ -99,7 +101,7 @@ export default function Hero() {
               <h1>{slides[index].title}</h1>
               <p>{slides[index].subtitle}</p>
               <a href="/product" className="hero-btn">
-                Explore Now
+                {t("hero.exploreCollection")}
               </a>
             </motion.div>
           </div>

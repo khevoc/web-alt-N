@@ -1,4 +1,34 @@
 {
+  "hero": {
+    "title": "Bienvenido a Neo Altair",
+    "subtitle": "Descubre el futuro de los activos digitales",
+    "shopNow": "Comprar ahora",
+    "exploreCollection": "Explorar ahora"
+  },
+  "product": {
+    "title": "Colección",
+    "sortBy": "Ordenar por precio",
+    "searchPlaceholder": "Buscar producto...",
+    "clearSearch": "Borrar búsqueda",
+    "sortLowHigh": "De menor a mayor",
+    "sortHighLow": "De mayor a menor",
+    "addToCart": "Agregar al carrito",
+    "noResults": "No se encontraron productos.",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "page": "Página",
+    "of": "de"
+  },
+
+  "navbar": {
+    "home": "Inicio",
+    "about": "Sobre Nosotros",
+    "collection": "Colección",
+    "contact": "Contacto",
+    "cart": "Carrito",
+    "checkout": "Pagar"
+  },
+
   "about": {
     "title": "Sobre Neo Altair",
     "tagline": "Transformando la imaginación en forma.",
@@ -40,5 +70,39 @@
       "phoneValue": "+51 987 654 321",
       "subtitle": "También puedes contactarnos directamente a través de los siguientes medios:"
     }
+  },
+  "cart": {
+    "title": "Tu Carrito",
+    "emptyMessage": "Tu carrito está vacío.",
+    "total": "Total",
+    "checkout": "Pagar",
+    "remove": "Eliminar",
+    "update": "Actualizar Carrito",
+    "cartUpdated": "Carrito actualizado correctamente.",
+    "itemAdded": "Artículo agregado al carrito.",
+    "itemRemoved": "Artículo eliminado del carrito.",
+    "clearCart": "Vaciar Carrito",
+    "empty": "Tu carrito está vacío.",
+    "continueShopping": "Continuar Comprando",
+    "proceedToCheckout": "Proceder al Pago",
+    "browseCollection": "Explorar Colección"
+
+  },
+  "checkout": {
+    "title": "Pagar",
+    "customerInformation": "Información del Cliente",
+    "fullName": "Nombre Completo",
+    "email": "Correo Electrónico",
+    "shippingAddress": "Dirección de Envío",
+    "orderSummary": "Resumen del Pedido",
+    "total": "Total",
+    "payNow": "Pagar Ahora",
+    "viewDetails": "Ver Detalles",
+    "hideDetails": "Ocultar Detalles"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados © 2024 Neo Altair",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
   }
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Papa from "papaparse";
 import { useCart } from "../../contexts/CartContext.jsx";
 import "./ProductPage.css";
+import { t } from "i18next";
 
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
@@ -126,14 +127,14 @@ export default function ProductPage() {
 
   return (
     <section className="product-section">
-      <h1 className="product-title">Our Collection</h1>
+      <h1 className="product-title"> {t("product.title")} </h1>
 
       {/* 🔹 Barra de filtros */}
       <div className="filters-bar" ref={dropdownRef}>
         <div className="search-box">
           <input
             type="text"
-            placeholder="Search products..."
+            placeholder= {t("product.searchPlaceholder")}
             className="search-input"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -186,7 +187,7 @@ export default function ProductPage() {
                 setShowCategories(false);
               }}
             >
-              Sort by Price 
+              {t("product.sortBy")} 
             </button>
             {showSortMenu && (
               <div className="dropdown-menu">
@@ -197,7 +198,7 @@ export default function ProductPage() {
                     setShowSortMenu(false);
                   }}
                 >
-                  Lowest to Highest
+                  {t("product.sortLowHigh")}
                 </button>
                 <button
                   className="dropdown-item"
@@ -206,7 +207,7 @@ export default function ProductPage() {
                     setShowSortMenu(false);
                   }}
                 >
-                  Highest to Lowest
+                  {t("product.sortHighLow")}
                 </button>
               </div>
             )}
@@ -225,12 +226,12 @@ export default function ProductPage() {
             <p className="category">{product.category}</p>
             <p className="price">${product.price.toFixed(2)}</p>
             <button onClick={(e) => handleAddToCart(product, e)}>
-              Add to Cart
+              {t("product.addToCart")}
             </button>
           </div>
         ))}
         {displayed.length === 0 && (
-          <p className="no-results">No products found.</p>
+          <p className="no-results">{t("product.noResults")}</p>
         )}
       </div>
 
@@ -238,16 +239,16 @@ export default function ProductPage() {
       {filteredData.length > itemsPerPage && (
         <div className="pagination">
           <button disabled={page === 1} onClick={handlePrev}>
-            ⟨ Prev
+            ⟨ {t("product.prev")}
           </button>
           <span>
-            Page {page} of {Math.ceil(filteredData.length / itemsPerPage)}
+            {t("product.page")} {page} {t("product.of")} {Math.ceil(filteredData.length / itemsPerPage)}
           </span>
           <button
             disabled={page >= Math.ceil(filteredData.length / itemsPerPage)}
             onClick={handleNext}
           >
-            Next ⟩
+            {t("product.next")} ⟩
           </button>
         </div>
       )}

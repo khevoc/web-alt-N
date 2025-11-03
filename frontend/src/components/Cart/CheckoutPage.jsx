@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useCart } from "../../contexts/CartContext.jsx";
 import MaintenanceModal from "../../components/MaintenanceModal.jsx";
+import { useTranslation } from "react-i18next";
 import "./CheckoutPage.css";
 
 export default function CheckoutPage() {
@@ -13,18 +14,20 @@ export default function CheckoutPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const { t } = useTranslation();
+
   return (
     <section className="checkout-section">
       <div className="checkout-container">
-        <h1 className="checkout-title">Checkout</h1>
+        <h1 className="checkout-title">{t("checkout.title")}</h1>
 
         <div className="checkout-content">
           {/* FORMULARIO */}
           <div className="checkout-form">
-            <h2>Customer Information</h2>
+            <h2>{t("checkout.customerInformation")}</h2>
             <form>
               <label>
-                Full Name
+                {t("checkout.fullName")}
                 <input
                   type="text"
                   name="name"
@@ -35,7 +38,7 @@ export default function CheckoutPage() {
                 />
               </label>
               <label>
-                Email
+                {t("checkout.email")}
                 <input
                   type="email"
                   name="email"
@@ -46,7 +49,7 @@ export default function CheckoutPage() {
                 />
               </label>
               <label>
-                Address
+                {t("checkout.shippingAddress")}
                 <input
                   type="text"
                   name="address"
@@ -61,16 +64,16 @@ export default function CheckoutPage() {
 
           {/* RESUMEN */}
           <div className="checkout-summary">
-            <h2>Order Summary</h2>
+            <h2>{t("checkout.orderSummary")}</h2>
             <div className="summary-top">
               <p className="summary-total">
-                <strong>Total:</strong> ${Number(total).toFixed(2)}
+                <strong>{t("checkout.total")}:</strong> ${Number(total).toFixed(2)}
               </p>
               <button
                 className="btn-toggle"
                 onClick={() => setShowDetails(!showDetails)}
               >
-                {showDetails ? "Hide Details" : "View Details"}
+                {showDetails ? t("checkout.hideDetails") : t("checkout.viewDetails")}
               </button>
             </div>
 
@@ -93,7 +96,7 @@ export default function CheckoutPage() {
             )}
 
             <button className="btn-pay" onClick={() => setShowModal(true)}>
-              Pay Now
+              {t("checkout.payNow")}
             </button>
           </div>
         </div>
