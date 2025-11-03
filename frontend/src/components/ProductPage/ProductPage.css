@@ -70,6 +70,8 @@
   position: relative;
   flex: 1;
   max-width: 440px;
+  min-width: 140px;
+  width: -webkit-fill-available;
 }
 
 .search-input {
@@ -132,7 +134,7 @@
   gap: 0.5rem;
   transition: all 0.3s ease;
   box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
-  min-width: 160px;
+  min-width: 120px;
 }
 
 .dropdown-btn:hover {
@@ -323,8 +325,10 @@
 /* === Responsive === */
 @media (max-width: 768px) {
   .filters-bar {
-    /* flex-direction: column; */
+    flex-direction: column;
     gap: 1rem;
+    justify-items: auto;
+    grid-row: 2;
   }
 
   .dropdown-group {
